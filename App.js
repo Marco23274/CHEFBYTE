@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -12,25 +11,19 @@ import PoliticasScreen from './Screens/PoliticasScreen';
 import TerminosScreen from './Screens/TerminosScreen';
 import ComentariosScreen from './Screens/ComentariosScren';
 import ReportarScreen from './Screens/ReportarScreen';
+import PerfilScreen from './Screens/PerfilScreen';
+import RecetaScreen from './Screens/RecetaScreen';
 
-const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
-
-function MainTabs() {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="Configuración" component={ConfiguracionScreen} />
-      <Tab.Screen name="Filtros" component={FiltrosScren} />
-    </Tab.Navigator>
-  );
-}
 
 export default function App() {
   return (
     <AppSettingsProvider>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="MainTabs" component={MainTabs} />
+          <Stack.Screen name="Receta" component={RecetaScreen} />
+          <Stack.Screen name="ConfiguracionScreen" component={ConfiguracionScreen} />
+          <Stack.Screen name="PerfilScreen" component={PerfilScreen} />
           <Stack.Screen name="AcercaScreen" component={AcercaScreen} />
           <Stack.Screen name="PoliticasScreen" component={PoliticasScreen} />
           <Stack.Screen name="TerminosScreen" component={TerminosScreen} />

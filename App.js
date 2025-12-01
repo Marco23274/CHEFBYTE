@@ -12,6 +12,7 @@ import PoliticasScreen from './Screens/PoliticasScreen';
 import TerminosScreen from './Screens/TerminosScreen';
 import ComentariosScreen from './Screens/ComentariosScren';
 import ReportarScreen from './Screens/ReportarScreen';
+import InicioSesionScreen from './Screens/InicioSesionScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -21,6 +22,8 @@ function MainTabs() {
     <Tab.Navigator>
       <Tab.Screen name="Configuración" component={ConfiguracionScreen} />
       <Tab.Screen name="Filtros" component={FiltrosScren} />
+      <Tab.Screen name="iNICIO" component={InicioSesionScreen} />
+
     </Tab.Navigator>
   );
 }

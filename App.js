@@ -1,20 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { AppSettingsProvider } from './Screens/AppSettingsContext';
+
+import ConfiguracionScreen from './Screens/ConfiguracionScren';
+import FiltrosScren from './Screens/FiltrosScreen';
+import AcercaScreen from './Screens/AcercaScreen';
+import PoliticasScreen from './Screens/PoliticasScreen';
+import TerminosScreen from './Screens/TerminosScreen';
+import ComentariosScreen from './Screens/ComentariosScren';
+import ReportarScreen from './Screens/ReportarScreen';
+
+const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+function MainTabs() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Tab.Navigator>
+      <Tab.Screen name="Configuración" component={ConfiguracionScreen} />
+      <Tab.Screen name="Filtros" component={FiltrosScren} />
+    </Tab.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  return (
+    <AppSettingsProvider>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="MainTabs" component={MainTabs} />
+          <Stack.Screen name="AcercaScreen" component={AcercaScreen} />
+          <Stack.Screen name="PoliticasScreen" component={PoliticasScreen} />
+          <Stack.Screen name="TerminosScreen" component={TerminosScreen} />
+          <Stack.Screen name="ComentariosScreen" component={ComentariosScreen} />
+          <Stack.Screen name="ReportarScreen" component={ReportarScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AppSettingsProvider>
+  );
+}
